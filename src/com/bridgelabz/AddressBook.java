@@ -16,10 +16,10 @@ public class AddressBook {
 
     static void showMenu() {
         System.out.println("Please select the option");
-        System.out.println("1. Show Contact");
-        System.out.println("2. Add new Contact");
-        System.out.println("3. Update Contact");
-        System.out.println("4. Delete Contact");
+        System.out.println("1. Show All Contact");
+        System.out.println("2. Add a New Contact");
+        System.out.println("3. Update a Contact");
+        System.out.println("4. Delete a Contact");
         System.out.println("5. Exit");
         int selection = sc.nextInt();
         selectionFunction(selection);
@@ -47,7 +47,7 @@ public class AddressBook {
     }
 
     static void addContact() {
-        System.out.println("Add new Contact");
+        System.out.println("Add a New Contact");
         System.out.print("Enter First Name : ");
         String first_name = sc.next();
         System.out.print("Enter Last Name : ");
