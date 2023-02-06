@@ -19,7 +19,8 @@ public class AddressBook {
         System.out.println("1. Show Contact");
         System.out.println("2. Add new Contact");
         System.out.println("3. Update Contact");
-        System.out.println("4. Exit");
+        System.out.println("4. Delete Contact");
+        System.out.println("5. Exit");
         int selection = sc.nextInt();
         selectionFunction(selection);
     }
@@ -29,7 +30,8 @@ public class AddressBook {
             case 1 -> showContact();
             case 2 -> addContact();
             case 3 -> updateContact();
-            case 4 -> System.exit(0);
+            case 4 -> deleteContact();
+            case 5 -> System.exit(0);
             default -> showMenu();
         }
     }
@@ -94,7 +96,19 @@ public class AddressBook {
                 contacts.setCity(city);
                 contacts.setState(state);
                 contacts.setZipcode(zipcode);
-                System.out.println("Contact Updated");
+                System.out.println("Contact Updated in the Address Book");
+            }
+        }
+        showMenu();
+    }
+
+    static void deleteContact() {
+        System.out.println("Enter the name of the Person to Delete the contact details");
+        String name = sc.next();
+        for (Contacts contacts : contactsList) {
+            if (contacts.first_name.equals(name)) {
+                contactsList.remove(contacts);
+                System.out.println(name + " is deleted from the Address Book");
             }
         }
         showMenu();
