@@ -63,10 +63,18 @@ public class AddressBook {
         System.out.print("Enter Zip : ");
         String zipcode = sc.next();
 
-        Contacts contacts = new Contacts(first_name, last_name, phone_number, email, city, state, zipcode);
-        contactsList.add(contacts);
-        System.out.println("Contact Added to the Address Book");
-        System.out.println(contacts);
+        boolean existing = false;
+        for (Contacts contacts : contactsList) {
+            existing = contacts.first_name.equals(first_name) && contacts.last_name.equals(last_name);
+        }
+        if (!existing) {
+            Contacts contacts = new Contacts(first_name, last_name, phone_number, email, city, state, zipcode);
+            contactsList.add(contacts);
+            System.out.println("Contact Added to the Address Book");
+            System.out.println(contacts);
+        } else {
+            System.out.println("This Name already exists in the Address Book");
+        }
         showMenu();
     }
 
